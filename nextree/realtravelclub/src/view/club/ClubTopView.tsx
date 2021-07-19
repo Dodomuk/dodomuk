@@ -2,8 +2,7 @@ import React, { PureComponent } from 'react';
 import { Grid, Button, TextField } from '@material-ui/core';
 import { Save, Delete, Update } from '@material-ui/icons';
 import { NavLink, Route } from 'react-router-dom';
-import { grey, lightGreen } from '@material-ui/core/colors';
-import { withStyles } from '@material-ui/core/styles';
+import {AddButton,TrashButton} from '../../resources/ButtonColor';
 import { observer } from 'mobx-react';
 
 interface Props {
@@ -19,27 +18,6 @@ interface Props {
 class ClubTopView extends PureComponent<Props> {
 	render() {
 		const { onSetName, onSetIntro, onAddClub, onUpdateClub, onDeleteClub, name, intro} = this.props;
-
-		//버튼 커스터마이징
-		const AddButton = withStyles((theme) => ({
-			root: {
-				color: theme.palette.getContrastText(grey[500]),
-				backgroundColor: grey[500],
-				'&:hover': {
-					backgroundColor: grey[700],
-				},
-			},
-		}))(Button);
-
-		const TrashButton = withStyles((theme) => ({
-			root: {
-				color: theme.palette.getContrastText(lightGreen[500]),
-				backgroundColor: lightGreen[500],
-				'&:hover': {
-					backgroundColor: lightGreen[700],
-				},
-			},
-		}))(Button);
 
 		//input
 		return (
