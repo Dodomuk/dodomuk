@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-
+import { NavLink, Route, Switch } from 'react-router-dom';
 import Main from '../main';
 import Club from '../club';
 import Member from '../member';
 
 const routes = [
 	// Common
-	{
-		path: '',
-		component: Main,
-	},
-	{
-		path: 'main',
-		component: Main,
-	},
 	{
 		path: 'club',
 		component: Club,
@@ -30,10 +21,12 @@ class AppRouter extends Component {
 		return (
 			<Switch>
 				{routes.map((singleRoute) => {
+				
 					const { path, ...otherProps } = singleRoute;
-					return <Route key={path} path={`${path}`} component={Club} />;
+					return<Route key={path} exact path={`/${path}`} {...otherProps} />;
 				})}
 			</Switch>
+
 		);
 	}
 }

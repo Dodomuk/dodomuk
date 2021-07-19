@@ -1,22 +1,22 @@
 import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import { observer } from 'mobx-react';
 import { PureComponent } from 'react';
+import { TravelClub } from '../../stores/ClubStore';
 
-
-interface Props{
-   clubList : IterableIterator<TravelClub>;
+interface Props {
+	clubList: Array<TravelClub>;
+	onFindClub: Function;
 }
 @observer
 class ClubTableView extends PureComponent<Props> {
 	render() {
-		let { clubList } = this.props;
-
+		let { clubList, onFindClub } = this.props;
 		return (
 			<>
 				<TableContainer component={Paper}>
 					<Table>
 						<TableHead>
-							<TableRow>
+							<TableRow  color="red">
 								<TableCell align="center">클럽</TableCell>
 								<TableCell align="center">소개글</TableCell>
 								<TableCell align="center">가입날짜</TableCell>
@@ -24,9 +24,20 @@ class ClubTableView extends PureComponent<Props> {
 						</TableHead>
 
 						<TableBody>
-							{clubList.map((name,intro,date) => (
-								<TableRow>
-									<TableCell>{name}</TableCell>
+							{onFindClub.length === 0 ?
+							[...clubList].map((club) => (
+								<TableRow key={club.name} hover >
+									<TableCell>{club.name}</TableCell>
+									<TableCell>{club.intro}</TableCell>
+									<TableCell>{club.date}</TableCell>
+								</TableRow>
+							))
+							:
+							[...onFindClub([...clubList])].map((club) => (
+								<TableRow key={club.name} hover>
+									<TableCell>{club.name}</TableCell>
+									<TableCell>{club.intro}</TableCell>
+									<TableCell>{club.date}</TableCell>
 								</TableRow>
 							))}
 						</TableBody>

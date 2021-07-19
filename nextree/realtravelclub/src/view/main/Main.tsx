@@ -1,23 +1,11 @@
 import React, { Component } from 'react';
-import { Link , RouteComponentProps } from 'react-router-dom';
+import { Link, NavLink, RouteComponentProps } from 'react-router-dom';
 import MenuItem from './sub-comp/MenuItem';
+import '../main/Main.css';
+interface Props extends RouteComponentProps {}
 
-interface Props extends RouteComponentProps {
-
-}
-
-class Main extends Component<Props> {
+class Main extends Component {
 	//
-	constructor(props: Props | Readonly<Props>) {
-		super(props);
-
-		this.goMemberPage = this.goMemberPage.bind(this);
-	}
-
-	goMemberPage() {
-		const { history } = this.props;
-		history.push('/member');
-	}
 
 	render() {
 		//
@@ -25,13 +13,18 @@ class Main extends Component<Props> {
 
 		return (
 			<>
-				{
-					menuList.map(menu => (
+				<nav className="navtop">
+					<h2>
+						<NavLink exact to="/">
+							TravelClub
+						</NavLink>
+					</h2>
+					{menuList.map((menu) => (
 						<MenuItem key={menu}>
-							<Link to={`/${menu}`}>{menu}</Link>
+							<NavLink exact to={`/${menu}`}>{menu}</NavLink>
 						</MenuItem>
-					))
-				}
+					))}
+				</nav>
 			</>
 		);
 	}

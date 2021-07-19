@@ -1,23 +1,27 @@
+import { Update } from '@material-ui/icons';
 import {action,computed,makeObservable,observable,toJS} from "mobx";
+import moment from 'moment';
 
-interface TravelClub{
+export interface TravelClub{
     name : string,
     intro : string,
-    date : Date,
+    date : string,
 }
-class ClubStore implements TravelClub{
+export class ClubStore implements TravelClub{
     
     @observable
     name = '';
     @observable
     intro = '';
     @observable
-    date = new Date();
+    date =  moment().format('YYYY-MM-DD');
+    @observable
+    private _searchText = '';
     @observable
     travelClub : TravelClub = {
         name : '',
         intro : '',
-        date : new Date(),
+        date :this.date,
     };
     @observable
     clubs : Map<string,TravelClub>;
@@ -27,9 +31,8 @@ class ClubStore implements TravelClub{
         this.clubs = new Map<string,TravelClub>();
     }
 
-    @computed
     clubLists(){
-        return toJS(this.clubs.values);
+        return toJS(this.clubs.values());
     }
 
     @computed
@@ -57,6 +60,19 @@ class ClubStore implements TravelClub{
         return this.date;
     }
 
+    @computed
+    get searchText(){
+        return this._searchText;
+    }
+
+    setSearchText(text : string){
+        this._searchText = text;
+    }
+
+    getTravelClub(name : string){
+        return this.clubs.get(name);
+        
+    }
 
     // CRUD 관련 메소드듣
 
@@ -65,13 +81,25 @@ class ClubStore implements TravelClub{
             this.travelClub = {
                 name : name,intro : intro,date : this.date
             }
-            this.clubs.set(name,this.travelClub);
+            if(this.clubs.has(name)){
+                window.alert('해당 이름의 클럽이 존재합니다');
+            }else{
+                this.clubs.set(name,this.travelClub);
+        }
     }
 
     @action
-    retrieve(name : string){
-      console.log(this.clubs.get(name)?.intro);
+    update(name : string, intro : string){
+        this.travelClub = {
+            name : name,intro : intro,date : this.date
+        }
+        this.clubs.set(name,this.travelClub);
+
+    }
+
+    @action
+    delete(travelClub : TravelClub){
+            this.clubs.delete(travelClub.name);
     }
     
 }
-export default new ClubStore();

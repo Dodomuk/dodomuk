@@ -3,32 +3,21 @@ import { TextField, InputAdornment, Button, Box } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { inject, observer } from 'mobx-react';
 import autobind from 'autobind-decorator';
-import ClubStore from '../../stores/ClubStore';
-import { Search } from '@material-ui/icons';
-import { blueGrey } from '@material-ui/core/colors';
-import { withStyles } from '@material-ui/core/styles';
+import {ClubStore} from '../../stores/ClubStore';
 
 interface Props {
-	clubStore: typeof ClubStore;
+	clubStore: ClubStore;
 }
 @inject('clubStore')
 @autobind
 @observer
-class SearchbarContainer extends Component<Props> {
+class Searchbar extends Component<Props> {
+	
 	onChangeSearchText(searchText: string) {
-		this.props.clubStore.retrieve(searchText);
+		this.props.clubStore.setSearchText(searchText);
 	}
 
 	render() {
-		const ColorButton = withStyles((theme) => ({
-			root: {
-				color: theme.palette.getContrastText(blueGrey[500]),
-				backgroundColor: blueGrey[500],
-				'&:hover': {
-					backgroundColor: blueGrey[700],
-				},
-			},
-		}))(Button);
 
 		return (
 			<>
@@ -49,4 +38,4 @@ class SearchbarContainer extends Component<Props> {
 	}
 }
 
-export default SearchbarContainer;
+export default Searchbar;
