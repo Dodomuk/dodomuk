@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
-import { Grid, Button, TextField } from '@material-ui/core';
+import { Grid, Button, TextField, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { Save, Delete, Update } from '@material-ui/icons';
 import { NavLink, Route } from 'react-router-dom';
-import {AddButton,TrashButton} from '../../resources/ButtonColor';
+import { AddButton, TrashButton } from '../../resources/ButtonColor';
 import { observer } from 'mobx-react';
 
 interface Props {
@@ -16,56 +16,87 @@ interface Props {
 }
 @observer
 class ClubTopView extends PureComponent<Props> {
-	render() {
-		const { onSetName, onSetIntro, onAddClub, onUpdateClub, onDeleteClub, name, intro} = this.props;
+	state = {
+		selected: null,
+		hasError: false,
+	};
 
+	handleChange(value: any) {
+		this.setState({ selected: value });
+	}
+
+	render() {
+		const { onSetName, onSetIntro, onAddClub, onUpdateClub, onDeleteClub, name, intro } = this.props;
+		const { selected, hasError } = this.state;
 		//input
 		return (
-			<form noValidate>
-				<Grid container xs={10} spacing={2}>
-					<Grid item xs={3}>
-						<TextField
-							margin="normal"
-							id="outlined-basic"
-							label="name" required
-							variant="standard"
-              value={name}
-							onChange={(event) => onSetName(event.target.value)}
-						/>
-					</Grid>
-					<Grid container xs={12} spacing={2}>
+			<>
+				<form className={classes.root} autoComplete="off">
+					<FormControl className={classes.formControl} error={hasError}>
+						<InputLabel htmlFor="name">Name</InputLabel>
+						<Select
+							name="name"
+							value={selected}
+							onChange={(event) => this.handleChange(event.target.value)}
+							>
+							<MenuItem value="hai">Hai</MenuItem>
+							<MenuItem value="olivier">Olivier</MenuItem>
+							<MenuItem value="kevin">Kevin</MenuItem>
+						</Select>
+					</FormControl>
+				</form>
+
+				<form noValidate>
+					<Grid container xs={10} spacing={2}>
 						<Grid item xs={3}>
 							<TextField
 								margin="normal"
 								id="outlined-basic"
-								label="intro"
+								label="name"
+								required
 								variant="standard"
-								value={intro}
-								onChange={(event) => onSetIntro(event.target.value)}
+								value={name}
+								onChange={(event) => onSetName(event.target.value)}
 							/>
 						</Grid>
-					</Grid>
+						<Grid container xs={12} spacing={2}>
+							<Grid item xs={3}>
+								<TextField
+									margin="normal"
+									id="outlined-basic"
+									label="intro"
+									variant="standard"
+									value={intro}
+									onChange={(event) => onSetIntro(event.target.value)}
+								/>
+							</Grid>
+						</Grid>
 
-					<Grid item>
-						<AddButton variant="contained" color="primary" startIcon={<Save />} onClick={() => onAddClub(name, intro)}>
-							Add
-						</AddButton>
-						&nbsp;&nbsp;
-						<TrashButton
-							variant="contained"
-							color="default"
-							startIcon={<Update />}
-							onClick={() => onUpdateClub(name, intro)}>
-							Update
-						</TrashButton>
-						&nbsp;&nbsp;
-						<Button variant="contained" color="default" startIcon={<Delete />} onClick={() => onDeleteClub(name)}>
-							Delete
-						</Button>
-						&nbsp;&nbsp;
+						<Grid item>
+							<AddButton
+								variant="contained"
+								color="primary"
+								startIcon={<Save />}
+								onClick={() => onAddClub(name, intro)}>
+								Add
+							</AddButton>
+							&nbsp;&nbsp;
+							<TrashButton
+								variant="contained"
+								color="default"
+								startIcon={<Update />}
+								onClick={() => onUpdateClub(name, intro)}>
+								Update
+							</TrashButton>
+							&nbsp;&nbsp;
+							<Button variant="contained" color="default" startIcon={<Delete />} onClick={() => onDeleteClub(name)}>
+								Delete
+							</Button>
+							&nbsp;&nbsp;
+						</Grid>
 					</Grid>
-				</Grid>
-			</form>
+				</form>
+			</>
 		);
 	}
 }

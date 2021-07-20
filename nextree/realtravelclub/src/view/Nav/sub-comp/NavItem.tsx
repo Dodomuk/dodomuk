@@ -6,7 +6,7 @@ class MenuItem extends Component {
 		//
 		const { children } = this.props;
 		const style = {
-			margin: '0 4px',
+			margin: '0px 4px',
 			width: '100px',
 			height: '40px',
 			lineHeight: '40px',
