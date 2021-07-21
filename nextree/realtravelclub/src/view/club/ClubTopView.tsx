@@ -27,25 +27,9 @@ class ClubTopView extends PureComponent<Props> {
 
 	render() {
 		const { onSetName, onSetIntro, onAddClub, onUpdateClub, onDeleteClub, name, intro } = this.props;
-		const { selected, hasError } = this.state;
 		//input
 		return (
 			<>
-				<form className={classes.root} autoComplete="off">
-					<FormControl className={classes.formControl} error={hasError}>
-						<InputLabel htmlFor="name">Name</InputLabel>
-						<Select
-							name="name"
-							value={selected}
-							onChange={(event) => this.handleChange(event.target.value)}
-							>
-							<MenuItem value="hai">Hai</MenuItem>
-							<MenuItem value="olivier">Olivier</MenuItem>
-							<MenuItem value="kevin">Kevin</MenuItem>
-						</Select>
-					</FormControl>
-				</form>
-
 				<form noValidate>
 					<Grid container xs={10} spacing={2}>
 						<Grid item xs={3}>

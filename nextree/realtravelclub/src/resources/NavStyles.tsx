@@ -1,6 +1,5 @@
 import { Theme, withStyles } from "@material-ui/core";
 import { Component } from "react";
-import { classicNameResolver } from "typescript";
 
 const useStyles = (theme: Theme) =>({
     root : {
@@ -11,8 +10,11 @@ const useStyles = (theme: Theme) =>({
   },
 });
 interface NavBar{
-  classes? : any;
-}
+  classes : {
+    root:string,
+    menuButton:string
+  }};
+
 class NavStyles extends Component<NavBar,{}>{
     render(){
       
