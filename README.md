@@ -1,1 +1,3 @@
-# Graduation Project 
+👋🏼 HI THERE 👋🏼
+
+working at Gwanghwamun
