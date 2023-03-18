@@ -19,8 +19,7 @@
 <br/><br/><br/>
 ### <div>💪🏼 Skills</div>
 <br/>
-Platforms & Languages
-<br/>
+<div>Platforms & Languages</div>
 <br/>
 
 <div>
