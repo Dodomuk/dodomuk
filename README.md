@@ -12,7 +12,7 @@
 <br />
 
 👋🏼 Hi there 👋🏼
-<div>I am FrontEnd Developer with Vue.js. 🚀</div>
+<div>I am frontend Developer with Vue.js. 🚀</div>
 <div>Interested in React.js, Cross-Platforms such as Flutter. 👀</div>
 <div>Develop means everything to me ⭐️</div>
 
