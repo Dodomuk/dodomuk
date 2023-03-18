@@ -1,23 +1,24 @@
 ![header](https://capsule-render.vercel.app/api?type=Waving&color=B0DFDB&height=300&section=header&text=Dodomuk's%20Github&fontSize=70&animation=blink&fontColor=fff)
 
 <br />
-<span>
-<a href="https://velog.io/@dodomuk" target="blog">
-<img src="https://img.shields.io/badge/velog-FF5722?style=flat-square&logo=Blogger&logoColor=white"/>
-</a>&nbsp;
-</span>
-<span>
-<img src="https://img.shields.io/badge/siderid94@gmail.com-EA4335?style=flat-square&logo=Gmail&logoColor=white"/>
-</a>&nbsp;
-</span>
-
-<br />
 <br />
 
 👋🏼 Hi there 👋🏼
 <div>I am frontend Developer with Vue.js. 🚀</div>
 <div>Interested in React.js, Cross-Platforms such as Flutter. 👀</div>
 <div>Develop means everything to me ⭐️</div>
+
+<br/>
+
+<span>
+<a href="https://velog.io/@dodomuk" target="blog">
+<img src="https://img.shields.io/badge/velog-FF5722?style=flat-square&logo=Blogger&logoColor=white"/>
+</a>
+</span>
+<span>
+<img src="https://img.shields.io/badge/siderid94@gmail.com-EA4335?style=flat-square&logo=Gmail&logoColor=white"/>
+</a>&nbsp;
+</span>
 
 <br/><br/><br/>
 ### <div>💪🏼 Skills</div>
@@ -36,3 +37,4 @@ Tools
 <div>
 <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/>&nbsp;
 </div>
+
