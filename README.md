@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=Waving&color=B0DFDB&height=250&section=header&text=Dodomuk's%20Github&fontSize=50&animation=blink&fontColor=fff)
+![header](https://capsule-render.vercel.app/api?type=Waving&color=60f0ff&height=250&section=header&text=Dodomuk's%20Github&fontSize=50&animation=blink&fontColor=fff)
 
 <br />
 <br />
