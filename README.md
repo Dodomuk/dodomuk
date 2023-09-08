@@ -11,11 +11,15 @@
 <span>
 <a href="https://velog.io/@dodomuk" target="blog">
 <img src="https://img.shields.io/badge/velog-FF5722?style=flat-square&logo=Blogger&logoColor=white"/>
-</a>
-  <a href="https://dodomuk.notion.site" target="blog">
-<img src="https://img.shields.io/badge/notion-000000?style=flat-square&logo=Notion&logoColor=white"/>
-  </a>
+</a>&nbsp;
 </span>
+
+<span>
+<a href="https://dodomuk.notion.site" target="blog">
+<img src="https://img.shields.io/badge/notion-000000?style=flat-square&logo=Notion&logoColor=white"/>
+</a>&nbsp;
+</span>
+
 <span>
 <img src="https://img.shields.io/badge/siderid94@gmail.com-EA4335?style=flat-square&logo=Gmail&logoColor=white"/>
 </a>&nbsp;
