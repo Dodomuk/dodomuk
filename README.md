@@ -16,7 +16,7 @@
 
 <span>
 <a href="https://dodomuk.notion.site" target="blog">
-<img src="https://img.shields.io/badge/notion-000000?style=flat-square&logo=Notion&logoColor=white"/>
+<img src="https://img.shields.io/badge/notion-333333?style=flat-square&logo=Notion&logoColor=white"/>
 </a>&nbsp;
 </span>
 
